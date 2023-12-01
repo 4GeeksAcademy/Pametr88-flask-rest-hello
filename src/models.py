@@ -123,11 +123,11 @@ class Species(db.Model):
         }
 class Favorites(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    character_id = db.Column(db.Integer, db.ForeignKey('character.id'))
-    planets_id = db.Column(db.Integer, db.ForeignKey('planets.id'))
-    films_id = db.Column(db.Integer, db.ForeignKey('films.id'))
-    species_id = db.Column(db.Integer, db.ForeignKey('species.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    character_id = db.Column(db.Integer, db.ForeignKey('character.id'), nullable=True)
+    planets_id = db.Column(db.Integer, db.ForeignKey('planets.id'), nullable=True)
+    films_id = db.Column(db.Integer, db.ForeignKey('films.id'), nullable=True)
+    species_id = db.Column(db.Integer, db.ForeignKey('species.id'), nullable=True)
     
 
     def __repr__(self):
